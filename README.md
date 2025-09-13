@@ -1,34 +1,38 @@
-# Cálculo de la Determinante de una Matriz
+# Calculadora de Volumen de Figuras Tridimensionales
 
-Este repositorio contiene una implementación para calcular la **determinante de una matriz cuadrada**. Puede ser útil como herramienta educativa, práctica de álgebra lineal o base para otros proyectos relacionados con matemáticas computacionales.
+Este proyecto es una aplicación web que permite calcular el volumen de diversas figuras tridimensionales de forma sencilla y rápida.
 
-## 📌 Descripción
+## Descripción
 
-El proyecto permite ingresar una matriz cuadrada (de cualquier tamaño razonable) y obtener su **determinante** utilizando diferentes métodos, como:
+La página está diseñada para que el usuario pueda seleccionar diferentes figuras geométricas (como cubo, esfera, cilindro, cono, prisma, etc.) e ingresar las dimensiones necesarias para obtener el volumen correspondiente.
 
-- Regla de Sarrus (para matrices 3x3)
-- Eliminación de Gauss
-- Expansión por cofactores (Laplace)
+## Figuras soportadas
 
-La implementación puede adaptarse a distintos lenguajes de programación, como Python, Java, C++, entre otros.
+- Cubo
+- Esfera
+- Cilindro
+- Cono
+- Prisma rectangular
+- Pirámide
 
-## 🚀 Funcionalidades
+## Cómo usar
 
-- Entrada de matriz por el usuario o desde archivo.
-- Verificación automática de si la matriz es cuadrada.
-- Cálculo de determinante con distintos algoritmos (según tamaño).
-- Salida con formato claro y legible.
-- (Opcional) Visualización paso a paso del cálculo.
+1. Selecciona la figura tridimensional de la lista.
+2. Ingresa las dimensiones solicitadas (por ejemplo, radio, altura, ancho, etc.).
+3. Haz clic en el botón "Calcular".
+4. El resultado del volumen aparecerá en pantalla.
 
-## 💻 Tecnologías usadas
+## Tecnologías utilizadas
 
-- Lenguaje: Python / Java / C++ / JavaScript / Otro
-- Librerías: NumPy (opcional), etc.
-- Interfaz: Consola / GUI / Web (según tu implementación)
+- HTML
+- CSS
+- JavaScript
 
-## 📦 Instalación
+## Instalación y ejecución
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repo.git
-   cd tu-repo
+Puedes clonar este repositorio y abrir el archivo `index.html` en tu navegador web para usar la calculadora localmente.
+
+```bash
+git clone https://github.com/tu-usuario/tu-repositorio.git
+cd tu-repositorio
+# Abrir index.html en tu navegador favorito
