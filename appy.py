@@ -38,17 +38,48 @@ for dim in figuras[figura]["dimensiones"]:
 def plot_cubo(a):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
-    r = [0, a]
-    for s, e in zip(
-        [(r[0], r[0], r[0]), (r[0], r[0], r[1]), (r[0], r[1], r[0]), (r[0], r[1], r[1]),
-         (r[1], r[0], r[0]), (r[1], r[0], r[1]), (r[1], r[1], r[0]), (r[1], r[1], r[1])],
-        [(r[0], r[0], r[1]), (r[0], r[1], r[0]), (r[0], r[1], r[1]), (r[1], r[0], r[0]),
-         (r[1], r[0], r[1]), (r[1], r[1], r[0]), (r[1], r[1], r[1]), (r[0], r[0], r[0])]):
-        ax.plot([s[0], e[0]], [s[1], e[1]], [s[2], e[2]], color='b')
+
+    # Definir los 8 vértices del cubo
+    points = np.array([
+        [0, 0, 0],
+        [a, 0, 0],
+        [a, a, 0],
+        [0, a, 0],
+        [0, 0, a],
+        [a, 0, a],
+        [a, a, a],
+        [0, a, a]
+    ])
+
+    # Conectar los vértices con líneas (aristas)
+    edges = [
+        (0,1), (1,2), (2,3), (3,0),  # base inferior
+        (4,5), (5,6), (6,7), (7,4),  # base superior
+        (0,4), (1,5), (2,6), (3,7)   # aristas verticales
+    ]
+
+    for edge in edges:
+        p1 = points[edge[0]]
+        p2 = points[edge[1]]
+        ax.plot([p1[0], p2[0]],
+                [p1[1], p2[1]],
+                [p1[2], p2[2]], color='b', linewidth=2)
+
     ax.set_box_aspect([1,1,1])
-    ax.set_xlim(0,a); ax.set_ylim(0,a); ax.set_zlim(0,a)
+    ax.set_xlim(0,a)
+    ax.set_ylim(0,a)
+    ax.set_zlim(0,a)
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
     ax.set_title("Cubo")
+
+    # Mejorar visualización
+    ax.grid(False)
+    ax.set_axis_off()
+
     return fig
+
 
 def plot_esfera(r):
     fig = plt.figure()
