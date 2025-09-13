@@ -1,4 +1,4 @@
-# Calculadora de Volumen de Figuras Tridimensionales
+# 🌟 Calculadora de Volumen de Figuras Tridimensionales 🌟
 
 Este proyecto es una aplicación web que permite calcular el volumen de diversas figuras tridimensionales de forma sencilla y rápida.
 
@@ -8,12 +8,12 @@ La página está diseñada para que el usuario pueda seleccionar diferentes figu
 
 ## Figuras soportadas
 
-- Cubo
-- Esfera
-- Cilindro
-- Cono
-- Prisma rectangular
-- Pirámide
+- Cubo 🟦
+- Esfera ⚪
+- Cilindro 🥤
+- Cono 🍦
+- Prisma rectangular 📦
+- Pirámide 🔺
 
 ## Cómo usar
 
