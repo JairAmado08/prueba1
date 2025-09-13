@@ -35,6 +35,8 @@ dimensiones = {}
 for dim in figuras[figura]["dimensiones"]:
     dimensiones[dim] = st.number_input(f"{dim}:", min_value=0.0, format="%.4f")
 
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+
 def plot_cubo(a):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -51,19 +53,19 @@ def plot_cubo(a):
         [0, a, a]
     ])
 
-    # Conectar los vértices con líneas (aristas)
-    edges = [
-        (0,1), (1,2), (2,3), (3,0),  # base inferior
-        (4,5), (5,6), (6,7), (7,4),  # base superior
-        (0,4), (1,5), (2,6), (3,7)   # aristas verticales
+    # Definir las 6 caras como listas de vértices
+    faces = [
+        [points[j] for j in [0,1,2,3]],  # base inferior
+        [points[j] for j in [4,5,6,7]],  # base superior
+        [points[j] for j in [0,1,5,4]],  # frente
+        [points[j] for j in [1,2,6,5]],  # derecha
+        [points[j] for j in [2,3,7,6]],  # atrás
+        [points[j] for j in [3,0,4,7]]   # izquierda
     ]
 
-    for edge in edges:
-        p1 = points[edge[0]]
-        p2 = points[edge[1]]
-        ax.plot([p1[0], p2[0]],
-                [p1[1], p2[1]],
-                [p1[2], p2[2]], color='b', linewidth=2)
+    # Crear colección de polígonos con color y transparencia
+    cube = Poly3DCollection(faces, facecolors='cyan', edgecolors='b', linewidths=1, alpha=0.5)
+    ax.add_collection3d(cube)
 
     ax.set_box_aspect([1,1,1])
     ax.set_xlim(0,a)
@@ -74,11 +76,12 @@ def plot_cubo(a):
     ax.set_zlabel('Z')
     ax.set_title("Cubo")
 
-    # Mejorar visualización
+    # Fondo y cuadrícula como en los anteriores
     ax.grid(False)
-    ax.set_axis_off()
+    ax.set_facecolor('white')
 
     return fig
+
 
 
 def plot_esfera(r):
