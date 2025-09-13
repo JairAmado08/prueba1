@@ -41,7 +41,6 @@ def plot_cubo(a):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
 
-    # Definir los 8 vértices del cubo
     points = np.array([
         [0, 0, 0],
         [a, 0, 0],
@@ -53,34 +52,40 @@ def plot_cubo(a):
         [0, a, a]
     ])
 
-    # Definir las 6 caras como listas de vértices
     faces = [
-        [points[j] for j in [0,1,2,3]],  # base inferior
-        [points[j] for j in [4,5,6,7]],  # base superior
-        [points[j] for j in [0,1,5,4]],  # frente
-        [points[j] for j in [1,2,6,5]],  # derecha
-        [points[j] for j in [2,3,7,6]],  # atrás
-        [points[j] for j in [3,0,4,7]]   # izquierda
+        [points[j] for j in [0,1,2,3]],
+        [points[j] for j in [4,5,6,7]],
+        [points[j] for j in [0,1,5,4]],
+        [points[j] for j in [1,2,6,5]],
+        [points[j] for j in [2,3,7,6]],
+        [points[j] for j in [3,0,4,7]]
     ]
 
-    # Crear colección de polígonos con color y transparencia
-    cube = Poly3DCollection(faces, facecolors='cyan', edgecolors='b', linewidths=1, alpha=0.5)
+    cube = Poly3DCollection(faces, facecolors='cyan', edgecolors='blue', linewidths=1, alpha=0.5)
     ax.add_collection3d(cube)
 
     ax.set_box_aspect([1,1,1])
-    ax.set_xlim(0,a)
-    ax.set_ylim(0,a)
-    ax.set_zlim(0,a)
+    ax.set_xlim(0, a)
+    ax.set_ylim(0, a)
+    ax.set_zlim(0, a)
     ax.set_xlabel('X')
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
     ax.set_title("Cubo")
 
-    # Fondo y cuadrícula como en los anteriores
-    ax.grid(False)
+    # Mostrar cuadrícula (opción por defecto es True, pero la ponemos explícita)
+    ax.grid(True)
+    # Puedes personalizar el estilo de la cuadrícula si quieres, por ejemplo:
+    ax.xaxis._axinfo["grid"]['color'] = "lightgray"
+    ax.yaxis._axinfo["grid"]['color'] = "lightgray"
+    ax.zaxis._axinfo["grid"]['color'] = "lightgray"
+
+    # Las marcas de eje permanecen visibles por defecto, no las tocamos.
+
     ax.set_facecolor('white')
 
     return fig
+
 
 
 
