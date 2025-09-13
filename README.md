@@ -22,8 +22,6 @@ La implementación puede adaptarse a distintos lenguajes de programación, como 
 
 ## 💻 Tecnologías usadas
 
-> Ajusta esta sección según tu lenguaje o entorno
-
 - Lenguaje: Python / Java / C++ / JavaScript / Otro
 - Librerías: NumPy (opcional), etc.
 - Interfaz: Consola / GUI / Web (según tu implementación)
